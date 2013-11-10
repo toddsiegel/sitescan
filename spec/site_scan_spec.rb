@@ -7,12 +7,18 @@ require_relative "../lib/sitescan/site"
 describe Site do
 
   it "can tell a site is not avialable" do
-    site = Site.new("http://fasdfasdfasd.com")
-    site.available?.must_be :== ,false
+    site = site_for "http://fasdfasdfasd.com"
+    site.wont_be :available?
   end
 
   it "can tell a site is available" do
-    site = Site.new("https://github.com")
-    site.available?.must_be :== ,true
+    site = site_for "https://github.com"
+    site.must_be :available?
+  end
+
+  private
+
+  def site_for(url)
+    Site.new(url)
   end
 end
