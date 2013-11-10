@@ -13,6 +13,10 @@ class Site
   http.response.is_a? Net::HTTPSuccess
   end
 
+  def unknown?
+    true
+  end
+
   private
 
   attr_reader :url

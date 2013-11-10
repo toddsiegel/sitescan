@@ -16,6 +16,11 @@ describe Site do
     site.must_be :available?
   end
 
+  it "is an unknown type of site" do
+    site = site_for "https://github.com"
+    site.must_be :unknown?
+  end
+
   private
 
   def site_for(url)
