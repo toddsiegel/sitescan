@@ -17,3 +17,7 @@ Semantic Versioning
 -------------------
 
 This tool uses [semantic versioning 2.0.0](http://semver.org)
+
+License
+---------
+Licensed under The MIT License
