@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+
+require_relative "../lib/sitescan"
+
+site = Site.new("http://google.com", SiteScan::Http::HttPartyClient.new)
+
+puts "Scanning #{site.url}"
+
+status = site.available? ? "available" : "unavailable"
+
+puts "Site is #{status}"

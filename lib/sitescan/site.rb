@@ -1,5 +1,7 @@
 class Site
 
+  attr_reader :url
+
   def initialize(url, http_client)
     @url = url
     @http_client = http_client
@@ -15,6 +17,6 @@ class Site
 
   private
 
-  attr_reader :http_client, :url
+  attr_reader :http_client
 
 end
