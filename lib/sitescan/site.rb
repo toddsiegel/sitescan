@@ -1,16 +1,12 @@
 class Site
 
-  def initialize(url)
+  def initialize(url, http_client)
     @url = url
+    @http_client = http_client
   end
 
   def available?
-  begin
-    http = HTTParty.get(url)
-  rescue SocketError
-    return false
-  end
-  http.response.is_a? Net::HTTPSuccess
+    http_client.available?
   end
 
   def unknown?
@@ -19,6 +15,6 @@ class Site
 
   private
 
-  attr_reader :url
+  attr_reader :http_client, :url
 
 end

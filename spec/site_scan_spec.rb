@@ -1,6 +1,6 @@
 require "minitest/spec"
 require "minitest/autorun"
-require "httparty"
+require "ostruct"
 
 require_relative "../lib/sitescan/site"
 
@@ -20,16 +20,20 @@ describe Site do
 
   private
 
-  def available_site
-    @available ||= site_for "https://github.com"
+  def fake_http_client(available)
+    OpenStruct.new(:available? => available)
   end
 
-  def site_for(url)
-    Site.new(url)
+  def available_site
+    @available ||= site_for "http://available.com", fake_http_client(true)
+  end
+
+  def site_for(url, http_adapter)
+    Site.new(url, http_adapter)
   end
 
   def unavailable_site
-    @unavailable ||= site_for "http://fasdfasdfasd.com"
+    @unavailable ||= site_for "http://unavailable.com", fake_http_client(false)
   end
 
   def unknown_site
