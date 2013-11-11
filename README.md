@@ -13,3 +13,7 @@ To print a basic report on the command line:
 
 	$ sitescan <url>
 
+Semantic Versioning
+-------------------
+
+This tool uses [semantic versioning 2.0.0](http://semver.org)
