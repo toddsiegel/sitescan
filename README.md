@@ -1,6 +1,11 @@
 SiteScan
 ========
 
+Notice
+------
+
+This tool doesn't actually do anything yet.
+
 Usage
 -----
 
